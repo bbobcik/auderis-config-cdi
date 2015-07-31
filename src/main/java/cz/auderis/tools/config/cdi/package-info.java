@@ -1,0 +1,1 @@
+package cz.auderis.tools.config.cdi;
