@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015 Boleslav Bobcik - Auderis
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package cz.auderis.tools.config.cdi;
 
 import cz.auderis.tools.config.ConfigurationDataProvider;
@@ -50,7 +66,7 @@ public class ConfigurationInjectorExtension implements Extension {
 	 * @param event CDI event
 	 */
 	public void beforeBeanDiscovery(@Observes BeforeBeanDiscovery event) {
-		LOG.trace("Auderis Configuration CDI extension enabled");
+		LOG.debug("Auderis Configuration CDI extension enabled");
 		// Make the @ConfigurationObject behave as a qualifier despite not having
 		// the standard @Qualifier annotation (this is to avoid dependency on JavaEE in
 		// core auderis-config module)
@@ -133,7 +149,8 @@ public class ConfigurationInjectorExtension implements Extension {
 			return Collections.emptyList();
 		}
 		// Filter out beans and candidates that do not have qualifier @ConfigurationSource
-		final List<Bean<ConfigurationDataProvider>> candidateList = new ArrayList<Bean<ConfigurationDataProvider>>(cfgBeanCandidates.size());
+		final int candidateCount = cfgBeanCandidates.size();
+		final List<Bean<ConfigurationDataProvider>> candidateList = new ArrayList<Bean<ConfigurationDataProvider>>(candidateCount);
 		for (final Bean<?> candidateBean : cfgBeanCandidates) {
 			if (hasQualifierType(candidateBean, ConfigurationSource.class)) {
 				assert hasBeanType(candidateBean, ConfigurationDataProvider.class);
