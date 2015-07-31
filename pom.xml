@@ -20,7 +20,7 @@
 
 	<groupId>cz.auderis</groupId>
 	<artifactId>auderis-config-cdi</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>Auderis Configuration - CDI extension</name>
@@ -52,7 +52,7 @@
 		<url>git@github.com:bbobcik/auderis-config-cdi.git</url>
 		<connection>scm:git:git@github.com:bbobcik/auderis-config-cdi.git</connection>
 		<developerConnection>scm:git:git@github.com:bbobcik/auderis-config-cdi.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>auderis-config-cdi-1.0.0</tag>
 	</scm>
 
 	<dependencies>
